@@ -1,15 +1,21 @@
 package main
 
 type Stack struct {
-	items []item
+	items []int
 }
 
-func (s *Stack) Add(item Item) {
-	s.items = append(s, item)
+func (s *Stack) Add(value int) {
+	s.items = append(s.items, value)
 }
 
-func (s *Stack) Pop() {
-
+func (s *Stack) Pop() int {
+	last_item_index := len(s.items)
+	if last_item_index == 0 {
+		return -1
+	}
+	item, items := s.items[last_item_index-1], s.items[:last_item_index-1]
+	s.items = items
+	return item
 }
 
 type Item struct {
@@ -21,5 +27,11 @@ func main() {
 	s.Add(1)
 	s.Add(2)
 	s.Add(3)
-	println(s)
+	for i, e := range s.items {
+		println(i, e)
+	}
+	println(s.Pop())
+	println(s.Pop())
+	println(s.Pop())
+	println(s.Pop())
 }
