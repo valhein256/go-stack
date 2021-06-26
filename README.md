@@ -1,4 +1,4 @@
-# go-list
+# go-stack
 
 ## build
 
