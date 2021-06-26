@@ -1,4 +1,4 @@
-SERVICE := go-stack
+SERVICE := go
 STAGE := stg
 PLATFORM := local
 
